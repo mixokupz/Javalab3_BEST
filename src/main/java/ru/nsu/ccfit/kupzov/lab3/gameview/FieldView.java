@@ -7,18 +7,10 @@ import java.util.Observable;
 import ru.nsu.ccfit.kupzov.lab3.observer.Observer;
 import java.awt.*;
 
-public class FieldView extends GameView{
+public class FieldView extends GameView implements Observer<Void>{
     private final TetrisController tetrisController;
     private final boolean isPreview;
-    //прокинь клнтроллер
-    private class FieldObserver implements Observer<Void> {
-
-        @Override
-        public void update(Void context) {
-            repaint();
-        }
-    }
-
+    
     public FieldView(TetrisController tetrisController, boolean isPriv) {
         super(tetrisController.getFieldByController(isPriv).getWidth(), tetrisController.getFieldByController(isPriv).getHigth());
         this.tetrisController = tetrisController;
@@ -35,6 +27,9 @@ public class FieldView extends GameView{
             }
         }
     }
-
+    @Override
+        public void update(Void context) {
+            repaint();
+        }
 
 }
