@@ -15,7 +15,7 @@ public class FieldView extends GameView implements Observer<Void>{
         super(tetrisController.getFieldByController(isPriv).getWidth(), tetrisController.getFieldByController(isPriv).getHigth());
         this.tetrisController = tetrisController;
         this.isPreview = isPriv;
-        this.tetrisController.getFieldByController(isPriv).addObserver(new FieldObserver());
+        this.tetrisController.getFieldByController(isPriv).addObserver(this);
     }
 
     @Override
